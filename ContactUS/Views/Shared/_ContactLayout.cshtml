@@ -27,12 +27,13 @@
 	<!--=========================================/======================================================-->
 	<link rel="stylesheet" type="text/css" href="/css/util.css">
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
-	<!--=========================================/======================================================-->
+    <!--=========================================/======================================================-->
+    @await RenderSectionAsync("style",false)
 </head>
 
 <body>
 
-<div class="limiter">
+	<div class="limiter"  >
     @RenderBody()
    
 </div>
@@ -55,7 +56,8 @@
 	<!--==============================================================================================-->
 	<script src="/vendor/countdowntime/countdowntime.js"></script>
 	<!--===============================================================================================-->
-	<script src="/js/main.js"></script>
+    <script src="/js/main.js"></script>
+	@await RenderSectionAsync("script",false)
 				 
 </body>
 

@@ -10,9 +10,15 @@ namespace ContactUs.Controllers
             return View();
         }
 
+        public IActionResult Messages()
+        {
+            return View(DataBase.DataBase.Messages);
+        }
+
         [HttpPost]
         public IActionResult SendMessage(Message message)
         {
+            DataBase.DataBase.Messages.Add(message);
             return Redirect("/home/Messages");
         }
     }
