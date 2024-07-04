@@ -1,3 +1,7 @@
+using ContactUs;
+using ContactUs.Middleware;
+using Microsoft.AspNetCore.Mvc;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -20,36 +24,13 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.Use(async (context, next) =>
-{
-    var url = context.Request.Path.ToString();
-    if (url.ToLower() == "/home/index")
-    {
-        context.Response.Headers.Add("CustomeHeader", $"{url}");
-       
-    }
-
-   
-
-    await next();
-});
-
-app.Use(async (context, next) =>
-{
-    var url = context.Request.Path.ToString();
-   
-
-    context.Items.Add("item", "First User");
-
-    await next();
-});
 
 
-app.Run(async (context) =>
-{
-    var item = context.Items["item"].ToString();
-    await context.Response.WriteAsync($"<h1>app.Run() called - {item}</h1>");
-});
+//app.MapWhen(context => context.Request.Query.ContainsKey("test"),Detailprogram.MapWhen);
+//app.Map("/home", Detailprogram.Test);
+
+app.UseTest();
+//app.UseMiddleware<Test>();
 
 app.MapControllerRoute(
     name: "default",
