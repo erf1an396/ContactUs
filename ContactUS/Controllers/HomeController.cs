@@ -21,5 +21,10 @@ namespace ContactUs.Controllers
             DataBase.DataBase.Messages.Add(message);
             return Redirect("/home/Messages");
         }
+
+        public IActionResult Project()
+        {
+            return View(model: "asdasdasd");
+        }
     }
 }
