@@ -26,23 +26,29 @@ app.Use(async (context, next) =>
     if (url.ToLower() == "/home/index")
     {
         context.Response.Headers.Add("CustomeHeader", $"{url}");
-        await context.Response.WriteAsync("App.user called");
+       
     }
+
+   
+
+    await next();
+});
+
+app.Use(async (context, next) =>
+{
+    var url = context.Request.Path.ToString();
+   
+
+    context.Items.Add("item", "First User");
 
     await next();
 });
 
 
-app.Use(async (context, next) =>
+app.Run(async (context) =>
 {
-    var url = context.Request.Path.ToString();
-    if (url.ToLower() == "/home/index")
-    {
-        context.Response.Headers.Add("CustomeHeader", $"{url}");
-        await context.Response.WriteAsync("App.user called");
-    }
-
-    await next();
+    var item = context.Items["item"].ToString();
+    await context.Response.WriteAsync($"<h1>app.Run() called - {item}</h1>");
 });
 
 app.MapControllerRoute(
