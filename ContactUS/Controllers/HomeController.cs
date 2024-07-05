@@ -22,6 +22,12 @@ namespace ContactUs.Controllers
         [HttpPost]
         public IActionResult SendMessage(Message message)
         {
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError("kkkk", "Test Error");
+                return View("Index",message);
+
+            }
             if (message.PhoneNumber.Length == 11) {
                 TempData["IsSuccess"] = true;
                 DataBase.DataBase.Messages.Add(message);
