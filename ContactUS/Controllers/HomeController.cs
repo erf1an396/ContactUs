@@ -5,8 +5,12 @@ namespace ContactUs.Controllers
 {
     public class HomeController : Controller
     {
+
+       
         public IActionResult Index()
         {
+          
+
             return View();
         }
 
@@ -18,7 +22,12 @@ namespace ContactUs.Controllers
         [HttpPost]
         public IActionResult SendMessage(Message message)
         {
-            DataBase.DataBase.Messages.Add(message);
+            if (message.PhoneNumber.Length == 11) {
+                TempData["IsSuccess"] = true;
+                DataBase.DataBase.Messages.Add(message);
+                return Redirect("/home/Messages");
+            }
+
             return Redirect("/home/Messages");
         }
 

@@ -1,6 +1,8 @@
 ﻿@model List<ContactUs.Models.Message>
 
 @{
+
+    var message = TempData["IsSuccess"];
     var  counter = 1;
 }
 
@@ -27,9 +29,23 @@
 
 <div class="container">
     <div class="card">
+           
+        @if(message != null)
+        {
+            <div class="alert alert-success">
+                    shod
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-danger">
+                nashod
+            </div>
+        }
         <div class="card-header">
             لیست پیام ها
         </div>
+       
         <div class="card-body">
             <table class="table table-bordered text-center">
                 <thead>
@@ -53,6 +69,7 @@
 
                     counter++;
                 }
+                   
 
                 </tbody>
             </table>

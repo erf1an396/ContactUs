@@ -1,8 +1,11 @@
 ﻿@model ContactUs.Models.Message
 
-<environment include="IIS Express">
-    <h1 class="dispaly-4"> iss express</h1>
-</environment>
+@{
+
+    ViewData["Title"] = "sign up";
+
+    var message3 = TempData["IsSuccess"];
+}
 
 <div class="container-login100" style="background-image: url('/images/bg-01.jpg');">
     <div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
@@ -10,6 +13,7 @@
             <span class="login100-form-title p-b-49">
                 تماس با ما
             </span>
+         
             <div class="wrap-input100 validate-input m-b-23" data-validate="نام را وارد کنید">
 
                 <span class="label-inpuzt100">نام و نام خانوادگی</span>
