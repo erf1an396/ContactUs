@@ -1,5 +1,6 @@
 ﻿@model List<ContactUs.Models.Message>
 
+
 @{
 
     var message = TempData["IsSuccess"];
@@ -52,6 +53,7 @@
                 <tr>
                     <th>#</th>
                     <th>عنوان</th>
+                    <th>شماره تماس</th>
                     <th>نام و نام خانوادگی</th>
                     <th>پیام</th>
                 </tr>
@@ -63,6 +65,9 @@
                     <tr>
                         <td>@counter</td>
                         <td>@item.Subject</td>
+                        <td>
+                                <call phone-number="@item.PhoneNumber"></call>
+                        </td>
                         <td>@item.FullName</td>
                         <td>@item.MessageBody</td>
                     </tr>

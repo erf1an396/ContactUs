@@ -4,7 +4,6 @@
 
     ViewData["Title"] = "sign up";
 
-    var message3 = TempData["IsSuccess"];
 }
 
 <div class="container-login100" style="background-image: url('/images/bg-01.jpg');">
@@ -47,21 +46,23 @@
             <div class="container-login100-form-btn mt-4">
                 <div class="wrap-login100-form-btn">
                     <div class="login100-form-bgbtn"></div>
-                    <button type="submit" class="login100-form-btn">
+                    <button bold type="submit" class="login100-form-btn">
                         ارسال
                     </button>
                 </div>
             </div>
+
+            <a class="btn btn-success" asp-controller="home" asp-action="Project" asp-route-name="reza" >send </a>
         </form>
     </div>
 </div>
 
 @section script
 {
-    <script>
+  @*   <script>
         alert("Render Section Script")
 
-    </script>
+    </script> *@
     <script src="./jquery-validation/dist/jquery.validate.min.js"></script>
     
   <script src="./jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

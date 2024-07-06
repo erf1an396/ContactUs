@@ -9,6 +9,8 @@ namespace ContactUs.Controllers
        
         public IActionResult Index()
         {
+
+           
           
 
             return View();
@@ -37,9 +39,11 @@ namespace ContactUs.Controllers
             return Redirect("/home/Messages");
         }
 
-        public IActionResult Project()
+        public IActionResult Project(string name)
         {
-            return View(model: "asdasdasd");
+            return View(model: name);
         }
+
+        
     }
 }
