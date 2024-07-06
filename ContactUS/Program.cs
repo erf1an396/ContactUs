@@ -72,8 +72,11 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.MapControllerRoute(
+    name: "customRoute",
+    pattern: "/codeyad/{name}",
+    defaults:new {Controller = "Home", Action = "Messages"});
+
 app.Run();
 
 
-
-  

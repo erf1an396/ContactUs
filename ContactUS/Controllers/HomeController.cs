@@ -9,10 +9,6 @@ namespace ContactUs.Controllers
        
         public IActionResult Index()
         {
-
-           
-          
-
             return View();
         }
 
@@ -40,6 +36,12 @@ namespace ContactUs.Controllers
         }
 
         public IActionResult Project(string name)
+        {
+            return View(model: name);
+        }
+
+        [HttpGet("/codeyad/hello")]
+        public IActionResult Privacy(string name)
         {
             return View(model: name);
         }

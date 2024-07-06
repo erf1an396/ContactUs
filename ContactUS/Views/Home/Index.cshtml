@@ -52,7 +52,7 @@
                 </div>
             </div>
 
-            <a class="btn btn-success" asp-controller="home" asp-action="Project" asp-route-name="reza" >send </a>
+            <a class="btn btn-success" href=@Url.Action("Messages", controller:"Home" , new {name = "item"}) >send </a>
         </form>
     </div>
 </div>
