@@ -53,12 +53,13 @@
         <div class="card-body">
             @* <partial name="_Message" /> *@
         </div>
+        
+        
         <div class="card-body">
-            @Component.InvokeAsync("Messagess")
+            @await Component.InvokeAsync("Messagess")
         </div>
-        <div>
-            <vc:messagess></vc:messagess>
-        </div>
+
+        
         
     </div> 
 </div>
