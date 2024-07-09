@@ -1,3 +1,4 @@
+using ConatactUs.Services;
 using ContactUs;
 using ContactUs.Middleware;
 using Microsoft.AspNetCore.Mvc;
@@ -22,6 +23,10 @@ static void ConfigureServices(IServiceCollection services)
 {
 
     services.AddControllersWithViews();
+    services.AddTransient<ITransientNumberService, TransientnumberService>();
+    services.AddScoped<IScopeNumberService, ScopeNumberservice>();
+    services.AddSingleton<ISingletonNumberService, SingletonNumberService>();
+
 
 }
 
